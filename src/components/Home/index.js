@@ -22,7 +22,7 @@ const Home = () => {
           genreId:each.genre_id,
           publishedDate:each.published_date
         }))
-        setBooks(updatedResponse);
+        searchResults(updatedResponse);
       } catch (error) {
         console.error('Error fetching books:', error);
         alert('Failed to fetch books.');
@@ -45,28 +45,7 @@ const Home = () => {
     setError(null);
   
     try {
-      const options={
-        method:'GET'
-      }
-      const responseStatus = await fetch(
-        'https://bookmanagement-backend-qh1z.onrender.com/books',options
-      );
-  
-      if (!responseStatus.ok) {
-        throw new Error("Failed to fetch books.");
-      }
-  
-      const booksResponse = await responseStatus.json();
-      const {response}=booksResponse
-      const updatedBooks=response.map(each=>({
-        bookId:each.book_id,
-        title:each.title,
-        authorId:each.author_id,
-        pages:each.pages,
-        genreId:each.genre_id,
-        publishedDate:each.published_date
-      }))
-  
+
       // Filter books on the frontend based on the search query
       const filteredBooks = updatedBooks.filter(book =>
         book.title.toLowerCase().includes(trimmedQuery.toLowerCase())
