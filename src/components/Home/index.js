@@ -29,7 +29,8 @@ const Home = () => {
         throw new Error("Failed to fetch books.");
       }
   
-      const books = await response.json();
+      const booksResponse = await response.json();
+      const {books}=booksResponse
   
       // Filter books on the frontend based on the search query
       const filteredBooks = books.filter(book =>
