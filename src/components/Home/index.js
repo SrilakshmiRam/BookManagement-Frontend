@@ -47,7 +47,7 @@ const Home = () => {
     try {
 
       // Filter books on the frontend based on the search query
-      const filteredBooks = updatedBooks.filter(book =>
+      const filteredBooks = searchResults.filter(book =>
         book.title.toLowerCase().includes(trimmedQuery.toLowerCase())
       );
   
