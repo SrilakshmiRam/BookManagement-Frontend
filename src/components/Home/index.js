@@ -11,7 +11,7 @@ const Home = () => {
 
   const handleSearch = async () => {
     const trimmedQuery = searchQuery.trim();
-    
+  
     if (!trimmedQuery) {
       console.log("Please enter a search query.");
       return;
@@ -22,7 +22,7 @@ const Home = () => {
   
     try {
       const response = await fetch(
-        `https://bookmanagement-backend-qh1z.onrender.com/books?query=${encodeURIComponent(trimmedQuery)}`
+        'https://bookmanagement-backend-qh1z.onrender.com/books'
       );
   
       if (!response.ok) {
@@ -30,9 +30,15 @@ const Home = () => {
       }
   
       const books = await response.json();
-      setSearchResults(books);
   
-      if (books.length === 0) {
+      // Filter books on the frontend based on the search query
+      const filteredBooks = books.filter(book =>
+        book.title.toLowerCase().includes(trimmedQuery.toLowerCase())
+      );
+  
+      setSearchResults(filteredBooks);
+  
+      if (filteredBooks.length === 0) {
         console.log("No books found matching the search query.");
       }
     } catch (error) {
@@ -42,11 +48,6 @@ const Home = () => {
       setIsLoading(false);
     }
   };
-  
-  
-  
-  
-  
 
   return (
     <div className="home-container">

@@ -42,7 +42,6 @@ const SearchResults = () => {
   useEffect(() => {
       fetchBooks();
     }, []);
-    console.log(books)
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
