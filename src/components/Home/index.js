@@ -48,7 +48,7 @@ const Home = () => {
       setIsLoading(false);
     }
   };
-
+  console.log(searchResults)
   return (
     <div className="home-container">
       {/* Navigation Bar */}
