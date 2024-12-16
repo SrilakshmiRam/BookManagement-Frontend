@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import SearchResults from '../SearchResults';
 import './index.css';
 
@@ -8,6 +8,30 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState([]); // To store filtered data
   const [isLoading, setIsLoading] = useState(false); // To handle loading state
   const [error, setError] = useState(null); // To handle errors
+
+
+  const fetchBooks = async () => {
+      try {
+        const serverresponse = await axios.get('https://bookmanagement-backend-qh1z.onrender.com/books');
+        const {response}=serverresponse.data
+        const updatedResponse=response.map(each=>({
+          bookId:each.book_id,
+          title:each.title,
+          authorId:each.author_id,
+          pages:each.pages,
+          genreId:each.genre_id,
+          publishedDate:each.published_date
+        }))
+        setBooks(updatedResponse);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+        alert('Failed to fetch books.');
+      } 
+    };
+  
+    useEffect(() => {
+        fetchBooks();
+      }, []);
 
   const handleSearch = async () => {
     const trimmedQuery = searchQuery.trim();
@@ -33,7 +57,6 @@ const Home = () => {
       }
   
       const booksResponse = await responseStatus.json();
-      console.log(booksResponse)
       const {response}=booksResponse
       const updatedBooks=response.map(each=>({
         bookId:each.book_id,

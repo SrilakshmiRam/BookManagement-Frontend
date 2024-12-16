@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 import axios from 'axios'
 
-import React, { useState ,useEffect} from 'react';
+import React, { useState } from 'react';
 
 import './index.css'
 
-const SearchResults = () => {
+const SearchResults = props => {
   // Sample data for demonstration (Replace with API data)
-  const [books, setBooks] = useState([]);
+  const {results}=props
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const booksPerPage = 10;
@@ -18,30 +18,8 @@ const SearchResults = () => {
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
   const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
 
-  const totalPages = Math.ceil(books.length / booksPerPage);
+  const totalPages = Math.ceil(results.length / booksPerPage);
   
-  const fetchBooks = async () => {
-    try {
-      const serverresponse = await axios.get('https://bookmanagement-backend-qh1z.onrender.com/books');
-      const {response}=serverresponse.data
-      const updatedResponse=response.map(each=>({
-        bookId:each.book_id,
-        title:each.title,
-        authorId:each.author_id,
-        pages:each.pages,
-        genreId:each.genre_id,
-        publishedDate:each.published_date
-      }))
-      setBooks(updatedResponse);
-    } catch (error) {
-      console.error('Error fetching books:', error);
-      alert('Failed to fetch books.');
-    } 
-  };
-
-  useEffect(() => {
-      fetchBooks();
-    }, []);
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -70,7 +48,7 @@ const SearchResults = () => {
         alert('Book deleted successfully!');
         
         // Remove the deleted book from the state
-        setBooks(books.filter((book) => book.bookId !== bookId));
+        setBooks(results.filter((book) => book.bookId !== bookId));
       } catch (error) {
         console.error('Error deleting book:', error);
         alert('Failed to delete the book. Please try again.');
