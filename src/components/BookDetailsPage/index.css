@@ -1,0 +1,46 @@
+/* Container styling for the details page */
+.details-container {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  .details-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Card styling for book details */
+  .details-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+  }
+  
+  /* Book title styling */
+  .book-title {
+    font-size: 1.5rem;
+    color: #007BFF;
+    margin-bottom: 10px;
+  }
+  
+  /* Paragraph styling for details */
+  .details-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 8px 0;
+  }
+  
+  /* Strong element styling for labels */
+  .details-card p strong {
+    color: #333;
+  }
+  

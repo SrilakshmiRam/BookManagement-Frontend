@@ -1,0 +1,137 @@
+/* General container styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.book-management-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+.book-form {
+  margin-bottom: 20px;
+}
+
+.book-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.book-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.book-form input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.book-form button {
+  display: inline-block;
+  background: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.book-form button:hover {
+  background: #0056b3;
+}
+
+/* Book List Styles */
+.book-list {
+  margin-top: 20px;
+}
+
+.book-list h2 {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.book-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.book-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.book-item div {
+  flex: 1;
+}
+
+.book-item strong {
+  color: #007BFF;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.action-buttons button:hover {
+  background: #5a6268;
+}
+
+.action-buttons .delete-button {
+  background: #dc3545;
+}
+
+.action-buttons .delete-button:hover {
+  background: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .book-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-buttons {
+    margin-top: 10px;
+    gap: 5px;
+  }
+}

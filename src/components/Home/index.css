@@ -1,0 +1,158 @@
+/* General Styles */
+.home-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navLink {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.navLink:hover {
+  color: #0056b3;
+}
+
+/* Search Section */
+.searchSection {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.filterGroup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input, .select, .search-button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input {
+  width: 300px;
+}
+
+.select {
+  width: 200px;
+}
+
+.search-button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+
+/* Small Screens (Phones) */
+@media (max-width: 600px) {
+  .navbar {
+    gap: 10px;
+    width: 100%;
+    padding-left: 0px;
+  }
+
+  .navLink {
+    font-size: 0.2rem;
+  }
+
+  .input {
+    width: 90%; /* Full width for input on small screens */
+  }
+
+  .select {
+    width: 90%; /* Full width for select dropdowns */
+  }
+
+  .search-button {
+    width: 90%; /* Full width for the button */
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 992px) {
+  .navbar {
+    gap: 12px;
+    padding: 10px 15px;
+  }
+
+  .navLink {
+    font-size: 1rem;
+  }
+
+  .filterGroup {
+    gap: 8px;
+  }
+
+  .input, .select, .search-button {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+  }
+}
+
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+  .navbar {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .navLink {
+    font-size: 1.1rem;
+  }
+
+  .input {
+    width: 350px;
+  }
+
+  .select {
+    width: 250px;
+  }
+
+  .search-button {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+}
