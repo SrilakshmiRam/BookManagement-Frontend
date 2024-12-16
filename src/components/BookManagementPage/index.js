@@ -60,7 +60,7 @@ const BookManagementPage = () => {
         }
 
         await axios.put(
-          `https://bookmanagement-backend-qh1z.onrender.com/books/${editingBook.BookId}`,
+          `https://bookmanagement-backend-qh1z.onrender.com/books/${editingBook.bookId}`,
           changedFields
         );
         alert('Book updated successfully!');
@@ -118,7 +118,7 @@ const BookManagementPage = () => {
         ) : (
           <ul>
             {books.map((book, index) => (
-              <li key={book.BookId || index} className="book-item">
+              <li key={book.bookId || index} className="book-item">
                 <div>
                   <strong>{book.title}</strong> with authorId: {book.authorId}
                   <br />
