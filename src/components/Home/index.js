@@ -30,6 +30,7 @@ const Home = () => {
       }
   
       const booksResponse = await response.json();
+      console.log(booksResponse)
       const {books}=booksResponse.data
       const updatedBooks=books.map(each=>({
         bookId:each.book_id,
@@ -57,7 +58,6 @@ const Home = () => {
       setIsLoading(false);
     }
   };
-  console.log(searchResults)
   return (
     <div className="home-container">
       {/* Navigation Bar */}
