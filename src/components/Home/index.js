@@ -30,10 +30,18 @@ const Home = () => {
       }
   
       const booksResponse = await response.json();
-      const {books}=booksResponse
+      const {books}=booksResponse.data
+      const updatedBooks=books.map(each=>({
+        bookId:each.book_id,
+        title:each.title,
+        authorId:each.author_id,
+        pages:each.pages,
+        genreId:each.genre_id,
+        publishedDate:each.published_date
+      }))
   
       // Filter books on the frontend based on the search query
-      const filteredBooks = books.filter(book =>
+      const filteredBooks = updatedBooks.filter(book =>
         book.title.toLowerCase().includes(trimmedQuery.toLowerCase())
       );
   
