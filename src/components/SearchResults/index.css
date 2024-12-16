@@ -21,11 +21,15 @@ h1 {
 .card {
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
+  padding: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 180px;
+  width: 190px;
   height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .card:hover {
@@ -139,6 +143,8 @@ p {
 
   .card {
     padding: 14px;
+    width: 200;
+    height: 250px;
   }
 
   .grid {
@@ -152,6 +158,11 @@ p {
   .grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+  }
+
+  .card{
+    width: 200;
+    height: 250px;
   }
 
 }
