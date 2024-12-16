@@ -10,38 +10,39 @@ const Home = () => {
   const [error, setError] = useState(null); // To handle errors
 
   const handleSearch = async () => {
-    const trimmedQuery = searchQuery.trim().toLowerCase();
-  
+    const trimmedQuery = searchQuery.trim();
+    
     if (!trimmedQuery) {
       console.log("Please enter a search query.");
       return;
     }
   
-    setIsLoading(true); // Start loading
-    setError(null); // Clear previous errors
+    setIsLoading(true);
+    setError(null);
   
     try {
-      const response = await fetch(`https://bookmanagement-backend-qh1z.onrender.com/books?query=${encodeURIComponent(trimmedQuery)}`);
-      const responseObj = await response.json();
-      const { response: books } = responseObj;
+      const response = await fetch(
+        `https://bookmanagement-backend-qh1z.onrender.com/books?query=${encodeURIComponent(trimmedQuery)}`
+      );
   
-      const filteredBooks = books.filter((book) => {
-        const { title } = book;
-        return title.toLowerCase().includes(trimmedQuery); // Match title only
-      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch books.");
+      }
   
-      setSearchResults(filteredBooks); // Store results
+      const books = await response.json();
+      setSearchResults(books);
   
-      if (filteredBooks.length === 0) {
+      if (books.length === 0) {
         console.log("No books found matching the search query.");
       }
     } catch (error) {
-      setError("Failed to fetch books. Please try again later."); // Set error message
+      setError("Failed to fetch books. Please try again later.");
       console.error("Error fetching books:", error);
     } finally {
-      setIsLoading(false); // Stop loading
+      setIsLoading(false);
     }
   };
+  
   
   
   
