@@ -21,18 +21,21 @@ const Home = () => {
     setError(null);
   
     try {
-      const response = await fetch(
-        'https://bookmanagement-backend-qh1z.onrender.com/books'
+      const options={
+        method:'GET'
+      }
+      const responseStatus = await fetch(
+        'https://bookmanagement-backend-qh1z.onrender.com/books',options
       );
   
-      if (!response.ok) {
+      if (!responseStatus.ok) {
         throw new Error("Failed to fetch books.");
       }
   
-      const booksResponse = await response.json();
+      const booksResponse = await responseStatus.json();
       console.log(booksResponse)
-      const {books}=booksResponse.data
-      const updatedBooks=books.map(each=>({
+      const {response}=booksResponse
+      const updatedBooks=response.map(each=>({
         bookId:each.book_id,
         title:each.title,
         authorId:each.author_id,
