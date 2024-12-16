@@ -12,12 +12,10 @@ h1 {
 /* Grid for Book Cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3,1fr);
   gap: 5px;
   margin: 0 auto;
   max-width: 1200px;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
 .card {
@@ -27,6 +25,7 @@ h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 180px;
+  height: 250px;
 }
 
 .card:hover {
@@ -108,7 +107,7 @@ p {
 /* Responsive Design */
 
 /* Small Screens (Phones) */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   h1 {
     font-size: 1.8rem;
   }
@@ -133,7 +132,7 @@ p {
 }
 
 /* Medium Screens (Tablets) */
-@media (max-width: 992px) {
+@media (min-width: 768px) {
   h1 {
     font-size: 2rem;
   }
@@ -143,8 +142,8 @@ p {
   }
 
   .grid {
-    gap: 15px;
-    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    grid-template-columns: repeat(4,1fr);
   }
 }
 
@@ -152,5 +151,7 @@ p {
 @media (min-width: 1200px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
   }
+
 }
