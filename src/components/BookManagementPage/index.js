@@ -16,7 +16,7 @@ const BookManagementPage = () => {
       const serverResponse = await axios.get('https://bookmanagement-backend-qh1z.onrender.com/books');
       const { response } = serverResponse.data;
       const updatedResponse = response.map(each => ({
-        BookId: each.book_id,
+        bookId: each.book_id,
         title: each.title,
         authorId: each.author_id,
         pages: each.pages,
@@ -126,7 +126,7 @@ const BookManagementPage = () => {
                 </div>
                 <div className="action-buttons">
                   <button onClick={() => startEditing(book)}>Edit</button>
-                  <button onClick={() => handleDeleteBook(book.BookId)} className="delete-button">
+                  <button onClick={() => handleDeleteBook(book.bookId)} className="delete-button">
                     Delete
                   </button>
                 </div>

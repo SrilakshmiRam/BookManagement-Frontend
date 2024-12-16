@@ -25,7 +25,7 @@ const SearchResults = () => {
       const serverresponse = await axios.get('https://bookmanagement-backend-qh1z.onrender.com/books');
       const {response}=serverresponse.data
       const updatedResponse=response.map(each=>({
-        BookId:each.book_id,
+        bookId:each.book_id,
         title:each.title,
         authorId:each.author_id,
         pages:each.pages,
