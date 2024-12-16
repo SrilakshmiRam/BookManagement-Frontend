@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useState,useEffect } from 'react';
+
+import axios from 'axios'
 import SearchResults from '../SearchResults';
 import './index.css';
 
@@ -9,29 +11,33 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false); // To handle loading state
   const [error, setError] = useState(null); // To handle errors
 
-
-  const fetchBooks = async () => {
+  
+  useEffect(() => {
+    const fetchBooks = async () => {
       try {
-        const serverresponse = await axios.get('https://bookmanagement-backend-qh1z.onrender.com/books');
-        const {response}=serverresponse.data
-        const updatedResponse=response.map(each=>({
-          bookId:each.book_id,
-          title:each.title,
-          authorId:each.author_id,
-          pages:each.pages,
-          genreId:each.genre_id,
-          publishedDate:each.published_date
-        }))
-        searchResults(updatedResponse);
+        const serverResponse = await axios.get('https://bookmanagement-backend-qh1z.onrender.com/books');
+        const { response } = serverResponse.data; // Ensure this matches your backend's data structure
+  
+        // Map and format the response
+        const updatedResponse = response.map(each => ({
+          bookId: each.book_id,
+          title: each.title,
+          authorId: each.author_id,
+          pages: each.pages,
+          genreId: each.genre_id,
+          publishedDate: each.published_date,
+        }));
+  
+        // Update the state with the fetched books
+        setSearchResults(updatedResponse);
       } catch (error) {
         console.error('Error fetching books:', error);
         alert('Failed to fetch books.');
-      } 
+      }
     };
   
-    useEffect(() => {
-        fetchBooks();
-      }, []);
+    fetchBooks(); // Call the async function
+  }, []);
 
   const handleSearch = async () => {
     const trimmedQuery = searchQuery.trim();
@@ -52,7 +58,7 @@ const Home = () => {
       );
   
       setSearchResults(filteredBooks);
-  
+      
       if (filteredBooks.length === 0) {
         console.log("No books found matching the search query.");
       }

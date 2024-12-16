@@ -16,7 +16,7 @@ const SearchResults = props => {
   // Pagination logic
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+  const currentBooks = results.slice(indexOfFirstBook, indexOfLastBook);
 
   const totalPages = Math.ceil(results.length / booksPerPage);
   
@@ -48,7 +48,7 @@ const SearchResults = props => {
         alert('Book deleted successfully!');
         
         // Remove the deleted book from the state
-        setBooks(results.filter((book) => book.bookId !== bookId));
+        results.filter((book) => book.bookId !== bookId);
       } catch (error) {
         console.error('Error deleting book:', error);
         alert('Failed to delete the book. Please try again.');
