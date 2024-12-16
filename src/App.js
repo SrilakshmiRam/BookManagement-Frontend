@@ -12,7 +12,7 @@ const App=()=>(
   <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<Home/>} />
-        <Route exact path='/book' element={<BookDetailsPage/>} />
+        <Route exact path='/book/:id' element={<BookDetailsPage/>} />
         <Route exact path='add/edit' element={<BookManagementPage/>} />
         <Route exact path='*' element={<NotFound/>} />
       </Routes>

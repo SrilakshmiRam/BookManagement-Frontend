@@ -71,10 +71,10 @@ const SearchResults = props => {
                   <p>Pages: {book.pages}</p>
                   <p>Published Date: {book.publishedDate}</p>
                   <div className='buttonGroup'>
-                  <Link to='/book' className='navLink'>
-          <button onClick={() => handleViewDetails(book.bookId)} className='button'>
+                  <Link to={`/book/${book.bookId}`} className='navLink'>
+                     <button onClick={() => handleViewDetails(book.bookId)} className='button'>
             View
-          </button>
+                     </button>
                   </Link>
                   <Link to='add/edit' className='navLink'>
           <button onClick={() => handleEditBook(book.bookId)} className='button'>

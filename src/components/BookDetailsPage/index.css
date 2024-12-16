@@ -6,6 +6,7 @@
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
   }
   
   /* Title styling */
@@ -14,6 +15,15 @@
     font-size: 2rem;
     color: #333;
     margin-bottom: 20px;
+    margin-top: 15px;
+  }
+
+
+  .loader-container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   /* Card styling for book details */
