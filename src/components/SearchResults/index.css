@@ -16,6 +16,8 @@ h1 {
   gap: 20px;
   margin: 0 auto;
   max-width: 1200px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .card {
@@ -123,6 +125,10 @@ p {
 
   .pagination span {
     font-size: 0.9rem;
+  }
+
+  .grid{
+    grid-template-columns: repeat(3,1fr);
   }
 }
 
